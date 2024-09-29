@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content Shield</title>
+    <style>
+      body {
+        width: 300px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+      }
+      .header {
+        background-color: #3498db;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .content {
+        padding: 15px;
+      }
+      .status {
+        background-color: #2ecc71;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+        margin-bottom: 15px;
+      }
+      .status.disabled {
+        background-color: #e74c3c;
+      }
+      .info {
+        font-size: 14px;
+        line-height: 1.5;
+        color: #34495e;
+      }
+      .toggle-btn {
+        background-color: #3498db;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 100%;
+        margin-top: 15px;
+      }
+      .toggle-btn:hover {
+        background-color: #2980b9;
+      }
+      #passwordInput {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        border: 1px solid #bdc3c7;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+      #passwordForm {
+        display: none;
+        margin-top: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">Content Shield</div>
+    <div class="content">
+      <div id="statusDiv" class="status">Активно</div>
+      <div class="info">
+        <p>
+          Content Shield защищает контент на этой странице от копирования и
+          создания скриншотов.
+        </p>
+      </div>
+      <button id="toggleOffBtn" class="toggle-btn">Отключить защиту</button>
+      <button id="toggleOnBtn" class="toggle-btn" style="display: none">
+        Включить защиту
+      </button>
+      <form id="passwordForm">
+        <input
+          type="password"
+          id="passwordInput"
+          placeholder="Введите пароль для отключения"
+        />
+        <button type="submit" class="toggle-btn">Подтвердить</button>
+      </form>
+    </div>
+    <script src="src/popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content Shield - Защищенная страница</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #34495e;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f8f9fa;
+      }
+      h1 {
+        color: #2c3e50;
+        font-size: 2.5em;
+        margin-bottom: 20px;
+      }
+      p {
+        margin-bottom: 15px;
+      }
+      a {
+        background-color: #3498db;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+        text-decoration: none;
+        display: inline-block;
+        margin: 10px 0;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+      a:hover {
+        background-color: #2980b9;
+      }
+      #extension-warning {
+        display: none;
+        background-color: #e74c3c;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+      #content {
+        display: none;
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="extension-warning">
+      Для просмотра содержимого этой страницы необходимо установить расширение
+      Content Shield.
+      <a href="link-to-your-extension" target="_blank">Установить расширение</a>
+    </div>
+    <div id="content">
+      <h1>Добро пожаловать на защищенную страницу</h1>
+      <p>
+        Этот текст защищен от копирования с помощью Content Shield. Вы не
+        сможете выделить его, скопировать или сделать скриншот.
+      </p>
+      <p>
+        Content Shield обеспечивает безопасный просмотр и защиту
+        интеллектуальной собственности.
+      </p>
+      <a href="protected-page-2.html">Перейти на вторую защищенную страницу</a>
+    </div>
+    <script>
+      function checkExtension() {
+        if (
+          document.documentElement.getAttribute("data-extension-installed") ===
+          "true"
+        ) {
+          document.getElementById("content").style.display = "block";
+          document.getElementById("extension-warning").style.display = "none";
+        } else {
+          document.getElementById("content").style.display = "none";
+          document.getElementById("extension-warning").style.display = "block";
+        }
+      }
+
+      // Проверяем наличие расширения каждые 500 мс
+      setInterval(checkExtension, 500);
+    </script>
+  </body>
+</html>
